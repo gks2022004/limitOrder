@@ -6,10 +6,10 @@ const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 module.exports = buildModule("SwapRouter02Module", (m) => {
   const factoryV3 = "0x32e175A35150847cFe9172cca3810e1d7E48f773";
+  const factoryV2 = "0x8308cA5De41161f9C33345325B5Fdf26EFaA574f"
   const WETH9 = "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9";
   const positionManager= "0xa2bcBce9B2727CAd75ec42bFf76a6d85DA129B9C";
-  const swapRouter02 = m.contract("SwapRouter02", [factoryV3, WETH9,
-    positionManager]);
+  const swapRouter02 = m.contract("SwapRouter02", [factoryV3, factoryV2, WETH9,positionManager]);
 
   return { swapRouter02 };
 });
